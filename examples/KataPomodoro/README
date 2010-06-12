@@ -1,0 +1,11 @@
+Application that simulates a pomodoro for the Pomodoro technique. 
+
+Jose Manuel Beas is the author of the java source code for this example.
+
+With this example we'll explore:
+
+- how to integrate ant tasks into rake scripts.
+- the use of the JRuby CLASSPATH variable
+- how to access to the JRuby runtime variable
+- how to import java classes into ruby code
+- how to integrate a ruby testing framework, RSpec, into a java project

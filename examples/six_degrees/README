@@ -1,0 +1,11 @@
+Naive implementation of the classic "Kevin Bacon's six degrees".
+
+Application built with a graph database, Neo4j, instead of a traditional RMDB.
+
+With this example we'll see:
+
+- how to integrate java libraries in rails projects
+- how to use bundle to manage dependencies
+- how to disable activerecord in Rails 3
+- how to use haml in Rails 3
+- some aspects of the new routes dsl

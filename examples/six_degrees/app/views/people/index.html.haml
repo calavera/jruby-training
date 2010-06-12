@@ -1,0 +1,21 @@
+%h1 Listing people
+
+%ul
+- @people.each do |person|
+  %li
+    = person.name
+    = link_to 'add relationship', new_person_friend_path(person)
+
+= link_to 'Add person', new_person_path
+
+- if @people.to_a.size > 1
+  %h2 Search degrees of separation between
+
+  - form_for :degrees, :url => {:action => :six_degrees} do |f|
+    .field
+      = f.label "first person"
+      = collection_select(:degrees, :first_person, @people, :id, :name, {:prompt => true})
+      = f.label "second person"
+      = collection_select(:degrees, :second_person, @people, :id, :name, {:prompt => true})
+    .actions
+      = f.submit 'Search'

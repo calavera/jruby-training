@@ -1,0 +1,8 @@
+%h1 Add relationship
+
+- form_for :friend, @person, :url => {:action => :create} do |f|
+  .field
+    = f.label "#{@person.name} knows"
+    = collection_select(:friend, :person_id, @all, :id, :name, {:prompt => true})
+  .actions
+    = f.submit 'Save'

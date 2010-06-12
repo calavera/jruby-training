@@ -1,0 +1,8 @@
+- if @degrees > 0
+  %h1= "there are #{pluralize(@degrees, 'degree')} of separation between #{@first.name} and #{@second.name}"
+- elsif @degrees == -1
+  %h1 why are you trying to find the relationship between the same person?
+- else
+  %h1= "#{@first.name} and #{@second.name} don't have any kind of relationship"
+
+= link_to 'Search again', people_path

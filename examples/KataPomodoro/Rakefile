@@ -1,0 +1,40 @@
+require 'java'
+require 'ant'
+require 'fileutils'
+include FileUtils
+
+#
+# testing tasks
+#
+
+SPECS_PATH = 'src/test/ruby/spec'
+
+require 'spec/rake/spectask'
+Spec::Rake::SpecTask.new(:spec) do |spec|
+  spec.libs << SPECS_PATH
+  spec.spec_opts = ['--colour', '--format', 'specdoc']
+  spec.spec_files = FileList["#{SPECS_PATH}/**/*_spec.rb"]
+end
+
+#
+# java compilation tasks
+#
+
+TARGET_PATH = 'target'
+
+namespace :ant do
+  desc 'Clean the java target directory'
+  task :clean do
+    rm_f TARGET_PATH
+  end
+
+  desc 'Compile the java classes'
+  task :compile => :clean do
+    mkdir_p TARGET_PATH
+
+    ant.javac({
+      :srcdir => 'src/main/java',
+      :destdir => TARGET_PATH
+    })
+  end
+end
